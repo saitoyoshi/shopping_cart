@@ -23,5 +23,7 @@ class CartTest extends TestCase {
         $this->assertSame(1, count($cart->getProductList()));
         $cart->deleteProduct('ポテチ');
         $this->assertSame(0, count($cart->getProductList()));
+        $cart->deleteProduct('ポテチ');
+        $this->expectOutputString('すでにその商品はカートに一つも入っていません' . PHP_EOL);
     }
 }
