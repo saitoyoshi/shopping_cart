@@ -15,15 +15,15 @@ class CartTest extends TestCase {
         $this->assertTrue($cart->getProductList()[0] instanceof Product);
         $this->assertTrue(is_a($cart->getProductList()[0], 'Product'));
     }
-    public function testDeleteProduct() {
+    public function testRemoveProduct() {
         $product = new Product('ポテチ', 270);
         $cart = new Cart();
         $this->assertSame(0, count($cart->getProductList()));
         $cart->addProduct($product);
         $this->assertSame(1, count($cart->getProductList()));
-        $cart->deleteProduct('ポテチ');
+        $cart->removeProduct('ポテチ');
         $this->assertSame(0, count($cart->getProductList()));
-        $cart->deleteProduct('ポテチ');
+        $cart->removeProduct('ポテチ');
         $this->expectOutputString('すでにその商品はカートに一つも入っていません' . PHP_EOL);
     }
     public function testTotal() {

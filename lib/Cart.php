@@ -12,7 +12,7 @@ class Cart {
     public function addProduct(Product $product):void {
         $this->productList[] = $product;
     }
-    public function deleteProduct(string $name): void {
+    public function removeProduct(string $name): void {
         $productFound = false;
         foreach($this->productList as $index => $product) {
             if ($product->getName() === $name) {
