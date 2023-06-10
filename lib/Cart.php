@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../lib/Product.php';
 
 class Cart {
+    const TAX = 0.10;
     private array $productList = [];
 
     public function getProductList(): array {
@@ -30,6 +31,10 @@ class Cart {
         $this->productList = array_values($this->productList);
     }
     public function total():int {
-        return 10;
+        $total = 0;
+        foreach ($this->productList as $product) {
+            $total += $product->getPrice();
+        }
+        return floor($total * (1 + self::TAX));
     }
 }
