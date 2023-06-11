@@ -22,10 +22,11 @@ class Cart {
             }
         }
         if (!$productFound) {
-            // 簡単に済ませる
-            echo 'すでにその商品はカートに一つも入っていません' . PHP_EOL;
+            // 簡単に済ませるのであれば、下記２行
+            // echo 'すでにその商品はカートに一つも入っていません' . PHP_EOL;
             // exit;
-            // throw new Exception("Product with name {$name} not found.");
+
+            throw new Exception("すでに商品: {$name} はカートに一つも入っていません");
         }
         // keyを再インデックス
         $this->productList = array_values($this->productList);
