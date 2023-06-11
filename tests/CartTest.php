@@ -26,6 +26,18 @@ class CartTest extends TestCase {
         $cart->removeProduct('ポテチ');
         $this->expectOutputString('すでにその商品はカートに一つも入っていません' . PHP_EOL);
     }
+    public function testIsEmpty() {
+        $cart = new Cart();
+        $this->assertTrue($cart->isEmpty());
+    }
+    public function testClear() {
+        $cart = new Cart();
+        $product = new Product('ポテチ', 270);
+        $cart->addProduct($product);
+        $cart->clear();
+        $this->assertSame(0, count($cart->getProductList()));
+    }
+
     public function testTotal() {
         $product1 = new Product('ポテチ', 270);
         $product2 = new Product('コーラ', 140);
