@@ -22,7 +22,7 @@ class UserTest extends TestCase {
         $user->addItemToCart($product);
         $user->addItemToCart($product);
         $user->addItemToCart($product);
-        $user->remoteItemFromCart($product);
+        $user->removeItemFromCart($product);
         $this->assertSame(594,$user->total());
     }
 }

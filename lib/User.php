@@ -22,7 +22,7 @@ class User {
     public function addItemToCart(Product $product): void {
         $this->cart->addProduct($product);
     }
-    public function remoteItemFromCart(Product $product): void {
+    public function removeItemFromCart(Product $product): void {
         $this->cart->removeProduct($product->getName());
     }
     public function total(): int {
