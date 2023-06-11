@@ -13,6 +13,12 @@ class User {
         $this->name = $name;
         $this->email = $email;
     }
+    public function getName() {
+        return $this->name;
+    }
+    public function getEmail() {
+        return $this->email;
+    }
     public function addItemToCart(Product $product): void {
         $this->cart->addProduct($product);
     }
