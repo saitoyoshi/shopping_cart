@@ -30,6 +30,12 @@ class Cart {
         // keyを再インデックス
         $this->productList = array_values($this->productList);
     }
+    public function isEmpty(): bool {
+        return count($this->productList) === 0;
+    }
+    public function clear(): void {
+        $this->productList = [];
+    }
     public function total():int {
         $total = 0;
         foreach ($this->productList as $product) {

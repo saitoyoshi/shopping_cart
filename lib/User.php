@@ -13,19 +13,21 @@ class User {
         $this->name = $name;
         $this->email = $email;
     }
-    public function getName() {
+    public function getName(): string {
         return $this->name;
     }
-    public function getEmail() {
+    public function getEmail(): string {
         return $this->email;
     }
-    public function addItemToCart(Product $product): void {
-        $this->cart->addProduct($product);
+    public function getCart(): Cart {
+        return $this->cart;
     }
-    public function removeItemFromCart(Product $product): void {
-        $this->cart->removeProduct($product->getName());
-    }
-    public function total(): int {
-        return $this->cart->total();
+    public function checkout(): void {
+        if ($this->cart->isEmpty()) {
+            echo "カートが空です。" . PHP_EOL;
+            return;
+        }
+        echo "購入を確定しました。" . PHP_EOL;
+        $this->cart->clear();
     }
 }
